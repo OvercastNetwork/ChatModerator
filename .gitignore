@@ -1,0 +1,10 @@
+# Maven
+target/
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.iml
+dependency-reduced-pom.xml

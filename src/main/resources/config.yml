@@ -1,0 +1,153 @@
+config:
+    delay-between-messages: 250
+    delay-between-same-messages: 3000
+debug:
+    enabled: false
+channels:
+  global:
+    format: '§f<{1}§r§f>: {2}'
+  message-sent-msg: Message sent.
+  minimum-score-no-send: 30
+  partially-offensive: 0.75
+zones:
+    chat:
+        enabled: false
+        excluded-filters:
+    signs:
+        enabled: true
+        excluded-filters:
+            - duplicate-messages
+            - leet
+    channel:
+        enabled: true
+        excluded-filters:
+filters:
+    duplicate-messages:
+        default-level: 10
+        priority: 5
+    bubbles:
+        default-level: 0
+        priority: 4
+    server-ip:
+        default-level: 4
+        priority: 1
+        expressions:
+            - regex: "((http)s?:\\/\\/)?[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)*(\\.[a-zA-Z]{2,4})(\\/[a-zA-Z0-9\\?-_\\+=]*)*"
+              level: 10.0
+            - regex: "([0-9]{1,3}\\.){3}[0-9]{1,3}"
+              level: 10.0
+        whitelist:
+            - "oc.tc"
+            - "i.oc.tc"
+            - "twitch.tv"
+            - "hitbox.tv"
+            - "twitter.com"
+    leet:
+        default-level: 2
+        priority: 5
+    repeated-characters:
+        priority: 2
+        count: 5
+    all-caps:
+        default-level: 12
+        priority: 3
+        max-length: 4
+    profanity:
+        default-level: 10
+        priority: 6
+        whitelist:
+            - "snowball|snowballs"
+            - "decanus"
+            - "bass"
+        templates:
+            tmp1:
+                expression: "\\b%FIRST+%REST+|%FIRST+%REST+\\b"
+                default: false
+            tmp2:
+                expression: "%WHOLE"
+                default: true
+            tmp3:
+                expression: "\\b(%WHOLE)\\b"
+                default: false
+        words:
+            "fuck":
+                level: 30
+            "motherfuck":
+                level: 30
+            "mofo":
+                level: 30
+            "nigger|nigga|niqqa":
+                level: 30
+            "cunt":
+                level: 25
+            "fag":
+                level: 25
+            "faggot|queer":
+                level: 25
+            "cock":
+                level: 22
+            "erection":
+                level: 20
+            "dick":
+                level: 20
+            "bastard|basterd":
+                level: 20
+            "penis":
+                level: 20
+            "pussy":
+                level: 20
+            "poon":
+                level: 20
+            "whore":
+                level: 20
+            "ejaculate|ejaculat":
+                level: 20
+            "anus|arse":
+                template: tmp3
+                level: 15
+            "bitch":
+                level: 15
+            "slut":
+                level: 15
+            "wank":
+                level: 15
+            "clit":
+                level: 15
+            "anal":
+                level: 15
+                template: tmp3
+            "goatse":
+                level: 14
+            "bukake":
+                level: 14
+            "dildo":
+                level: 13
+            "skeet":
+                level: 13
+            "clit":
+                level: 13
+            "tits":
+                level: 12
+            "twat":
+                level: 12
+            "titties":
+                level: 12
+            "ass|asshole|assface|badass":
+                level: 10
+                template: tmp3
+            "boner":
+                level: 10
+            "douche":
+                level: 10
+            "shit":
+                level: 10
+            "weed":
+                level: 10
+            "masturbate|masterbate":
+                level: 10
+            "porn":
+                level: 10
+            "blowjob":
+                level: 10
+            "piss":
+                level: 7

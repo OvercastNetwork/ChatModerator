@@ -1,0 +1,51 @@
+name: ${project.name}
+version: ${project.version}
+description: ${project.description}
+author: Overcast Network
+website: ${project.url}
+main: ${plugin.mainClass}
+prefix: ${plugin.prefix}
+depend: [BukkitSettings, Channels]
+
+commands:
+    chatmoderator:
+        description: Reloads ChatModerator
+        usage: /<command>
+        aliases: [cm]
+
+permissions:
+    chatmoderator.reload:
+        description: Allows a player to reload ChatModerator
+        default: op
+    chatmoderator.filters.exempt:
+        description: Exempts a player from all filters
+        default: false
+        children:
+            chatmoderator.filters.exempt.all-caps: true
+            chatmoderator.filters.exempt.duplicate-messages: true
+            chatmoderator.filters.exempt.server-ip: true
+            chatmoderator.filters.exempt.profanity: true
+            chatmoderator.filters.exempt.repeated-characters: true
+            chatmoderator.filters.exempt.leet-speak: true
+            chatmoderator.filters.exempt.bubbles: true
+    chatmoderator.filters.exempt.all-caps:
+        description: Exempts a player from the AllCapsFilter
+        default: false
+    chatmoderator.filters.exempt.duplicate-messages:
+        description: Exempts a player from the DuplicatMessagesFilter
+        default: false
+    chatmoderator.filters.exempt.server-ip:
+        description: Exempts a player from the ServerIPFilter
+        default: false
+    chatmoderator.filters.exempt.profanity:
+        description: Exempts a player from the ProfanityFilter
+        default: false
+    chatmoderator.filters.exempt.repeated-characters:
+        description: Exempts a player from the RepeatedCharacterFilter
+        default: false
+    chatmoderator.filters.exempt.leet-speak:
+        description: Exempts a player from the LeetSpeakFilter
+        default: false
+    chatmoderator.filters.exempt.bubbles:
+        description: Exempts a player from the BubblesFilter
+        default: false
