@@ -178,7 +178,7 @@ public final class ChatModeratorListener implements Listener {
 
             for (Violation v : plugin.getPlayerManager().getViolationSet(player).getViolationsForTime(signCreateInstant)) {
                 if (v.isCancelled()) {
-                    event.setLine(i, null);
+                    event.setLine(i, "");
                     event.setCancelled(true);
                     break;
                 }
